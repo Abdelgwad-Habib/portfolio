@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { ArrowRight, Download, Flag, ShieldCheck } from 'lucide-react'
+import { ArrowRight, Download } from 'lucide-react'
 import Aurora from '../components/reactbits/Aurora'
 import MatrixRain from '../components/reactbits/MatrixRain'
 import SplitText from '../components/reactbits/SplitText'
@@ -14,60 +14,107 @@ function ProfileCard() {
   const [imgOk, setImgOk] = useState(true)
 
   return (
-    <div className="relative">
-      <motion.div
-        animate={{ opacity: [0.4, 0.8, 0.4], scale: [1, 1.06, 1] }}
-        transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute -inset-6 rounded-[2.5rem] bg-neon/15 blur-3xl"
+    <div className="group/card relative mx-auto w-full max-w-[21rem] select-none">
+
+      {/* ── floating sticker badges at playful angles ── */}
+      <div
         aria-hidden="true"
+        className="absolute -left-8 top-8 z-30 rotate-[-14deg] rounded-xl bg-neon px-3 py-1.5 font-display text-xs font-bold tracking-wide text-ink shadow-lg transition-transform duration-500 group-hover/card:rotate-[-8deg] group-hover/card:scale-110"
+      >
+        Open to work
+      </div>
+      <div
+        aria-hidden="true"
+        className="absolute -right-6 top-20 z-30 rotate-[11deg] rounded-xl bg-fuchsia-500 px-3 py-1.5 font-display text-xs font-bold tracking-wide text-white shadow-lg transition-transform duration-500 group-hover/card:rotate-[5deg] group-hover/card:scale-110"
+      >
+        Pentester
+      </div>
+      <div
+        aria-hidden="true"
+        className="absolute -right-4 bottom-24 z-30 rotate-[7deg] rounded-xl bg-glow px-3 py-1.5 font-display text-xs font-bold tracking-wide text-ink shadow-lg transition-transform duration-500 group-hover/card:rotate-[2deg] group-hover/card:scale-110"
+      >
+        CTF Player
+      </div>
+
+      {/* ── washi tape strips ── */}
+      <div
+        aria-hidden="true"
+        className="absolute -left-3 top-5 z-20 h-6 w-20 rotate-[-28deg] rounded-sm bg-yellow-300/80 mix-blend-screen shadow-sm"
+        style={{ maskImage: 'linear-gradient(90deg, transparent 2%, black 8%, black 92%, transparent 98%)' }}
+      />
+      <div
+        aria-hidden="true"
+        className="absolute -right-2 top-3 z-20 h-6 w-16 rotate-[22deg] rounded-sm bg-rose-400/80 mix-blend-screen shadow-sm"
+        style={{ maskImage: 'linear-gradient(90deg, transparent 2%, black 8%, black 92%, transparent 98%)' }}
       />
 
-      <TiltedCard maxTilt={9}>
-        <div className="beam-border relative overflow-hidden rounded-3xl border border-white/10 bg-panel">
-          {imgOk ? (
-            <img
-              src={profile.photo}
-              alt="AbdElgwad Habib"
-              onError={() => setImgOk(false)}
-              className="aspect-[4/5] w-full object-cover"
-            />
-          ) : (
-            <div className="flex aspect-[4/5] w-full flex-col items-center justify-center gap-4 bg-gradient-to-br from-panel2 to-ink">
-              <span className="font-display text-8xl font-bold gradient-text">AH</span>
-              <span className="font-mono text-xs text-mist">&lt; save your photo as /profile.jpg &gt;</span>
-            </div>
-          )}
+      {/* ── handwritten annotation with arrow ── */}
+      <div aria-hidden="true" className="absolute -left-24 bottom-36 z-30 hidden lg:block">
+        <p className="handwriting rotate-[-6deg] text-xl text-neon">
+          that's me! →
+        </p>
+      </div>
 
-          <div className="pointer-events-none absolute inset-x-0 h-16 animate-scanline bg-gradient-to-b from-transparent via-neon/15 to-transparent" />
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/90 via-transparent to-ink/20" />
+      <TiltedCard maxTilt={6} scale={1.02}>
+        {/* Polaroid-style frame */}
+        <div className="relative z-10 rotate-[2.5deg] rounded-md bg-white/[0.92] p-2.5 pb-16 shadow-[0_25px_80px_-20px_rgba(0,0,0,0.7),0_8px_24px_-8px_rgba(0,0,0,0.4)] transition-transform duration-700 group-hover/card:rotate-[0deg]">
+          {/* photo */}
+          <div className="relative overflow-hidden rounded-sm">
+            {imgOk ? (
+              <img
+                src={profile.photo}
+                alt="AbdElgwad Habib"
+                onError={() => setImgOk(false)}
+                className="aspect-[4/5] w-full object-cover"
+              />
+            ) : (
+              <div className="flex aspect-[4/5] w-full flex-col items-center justify-center gap-4 bg-gradient-to-br from-slate-800 to-slate-900">
+                <span className="font-display text-8xl font-bold text-slate-500">AH</span>
+                <span className="font-mono text-xs text-slate-500">&lt; save your photo as /profile.jpg &gt;</span>
+              </div>
+            )}
 
-          <div className="absolute inset-x-0 bottom-0 p-5">
-            <p className="font-mono text-xs text-neon">$ whoami</p>
-            <p className="mt-1 font-display text-xl font-bold text-white">
+            {/* subtle warm vignette */}
+            <div className="pointer-events-none absolute inset-0 rounded-sm shadow-[inset_0_0_60px_rgba(0,0,0,0.25)]" />
+          </div>
+
+          {/* polaroid bottom text area — handwritten feel */}
+          <div className="absolute inset-x-0 bottom-0 px-4 py-3 text-center">
+            <p className="handwriting text-lg text-slate-800">
               {profile.name}
-              <span className="ml-2 inline-block h-2 w-2 rounded-full bg-danger align-middle" />
+            </p>
+            <p className="handwriting mt-0.5 text-xs text-slate-500">
+              {profile.role} · {profile.location}
             </p>
           </div>
+
+          {/* little doodle star */}
+          <svg
+            aria-hidden="true"
+            className="absolute bottom-12 right-5 h-5 w-5 text-yellow-400"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+          >
+            <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 16.8l-6.2 4.5 2.4-7.4L2 9.4h7.6z" />
+          </svg>
+          <svg
+            aria-hidden="true"
+            className="absolute bottom-14 right-10 h-3 w-3 text-yellow-300/70"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+          >
+            <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 16.8l-6.2 4.5 2.4-7.4L2 9.4h7.6z" />
+          </svg>
         </div>
       </TiltedCard>
 
-      <motion.div
-        animate={{ y: [0, -12, 0] }}
-        transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-        className="absolute -left-4 top-8 flex items-center gap-2 rounded-xl border border-danger/30 bg-ink/85 px-3 py-2 font-mono text-[11px] text-slate-200 backdrop-blur-md sm:-left-8"
+      {/* ── small floating emoji sticker bottom-left ── */}
+      <div
+        aria-hidden="true"
+        className="absolute -bottom-2 -left-5 z-30 rotate-[-10deg] text-3xl drop-shadow-lg transition-transform duration-500 group-hover/card:rotate-[5deg] group-hover/card:scale-125"
       >
-        <Flag size={13} className="text-danger" />
-        ECPC → ACPC Competitor
-      </motion.div>
-
-      <motion.div
-        animate={{ y: [0, 12, 0] }}
-        transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-        className="absolute -right-3 bottom-24 flex items-center gap-2 rounded-xl border border-neon/30 bg-ink/85 px-3 py-2 font-mono text-[11px] text-slate-200 backdrop-blur-md sm:-right-7"
-      >
-        <ShieldCheck size={13} className="text-neon" />
-        THM · CyberShield
-      </motion.div>
+        🔥
+      </div>
     </div>
   )
 }

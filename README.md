@@ -1,16 +1,50 @@
-# React + Vite
+# AbdElgwad Habib — *Breaking, Building & Securing*
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+> *"Break it. Report it. Secure it. Repeat."*
 
-Currently, two official plugins are available:
+Welcome to the source code of my personal portfolio — a live snapshot of a Computer Science student from **Tanta, Egypt**, splitting his nights between offensive security labs, algorithmic problem-solving, and shipping products from scratch.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+**Live Site:** [abdelgwad-habib.github.io/portfolio](https://abdelgwad-habib.github.io/portfolio/)
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## The Story So Far
 
-## Expanding the Oxlint configuration
+### Chapter 01 — The Logic Foundations *(2023 — Present)*
+Every good exploit starts with understanding how systems think. In 2023, I started my B.Sc. in Computer Science at **Tanta University** (`2023 → 2027`) and fell down the competitive programming rabbit hole — **120+ algorithm problems** solved across Codeforces and VJudge, a 30-day streak, C++ OOP systems built from scratch, and competing at **ECPC** on the road to the **Africa & Arab Collegiate Programming Championship (ACPC)**.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+### Chapter 02 — Switching Sides: Offensive Security *(2024 — Present)*
+Once you know how software is built, you start wondering how it breaks. I moved into **Web Penetration Testing** and the **OWASP Top 10**, racking up **160 hours** of pentest training at the International Professionalism Academy (*Awarded with Distinction*), **20+ CTFs and labs** on **TryHackMe** and **CyberShield**, and daily-driving **Kali Linux, Nmap, Wireshark, and Burp Suite**.
+
+Somewhere along the way, manual DNS recon got repetitive — so I wrote **Phoenix**, a Bash CLI tool that automates forward/reverse lookups and zone-transfer checks in lab assessments.
+
+### Chapter 03 — Down at the Wire *(Jul — Aug 2025)*
+To understand security above the application layer, I spent **120 hours** at the **National Telecommunication Institute (NTI)** in Cairo designing and troubleshooting networks with VLANs, static routing, and subnetting — graduating with a **97%** final evaluation score.
+
+### Chapter 04 — 24 Hours, 48 Hours & Co-Founding DashZ
+I love building under a ticking clock:
+- **AppOut Hackathon:** Delivered a working MVP in **24 hours** — **Top 10 Finalist** out of **120+ teams**.
+- **Ibda'a Festival:** Shipped a full working system in **48 hours** and pitched the technical architecture to the judging panel.
+- **DashZ ([dashz.dev](https://dashz.dev/)):** Co-founded an AI-powered career mentor that audits CVs for ATS gaps, builds personalized learning roadmaps, matches candidates with live roles, and generates tailored cover letters.
+
+---
+
+## Toolkit at a Glance
+
+- **Security:** OWASP Top 10 · Web Pentesting · DNS Enumeration · Linux Hardening · 20+ CTFs
+- **Tools:** Kali Linux · Burp Suite · Nmap · Wireshark · Git & GitHub
+- **Languages:** C++ · Python · Bash · Java · HTML/JS
+
+---
+
+## Connect
+
+- **GitHub:** [github.com/Abdelgwad-Habib](https://github.com/Abdelgwad-Habib)
+- **LinkedIn:** [linkedin.com/in/abdelgwad-habib](https://linkedin.com/in/abdelgwad-habib)
+- **Email:** `abdelgwadhabib5122004@gmail.com`
+
+---
+
+## Built With
+
+`React 19` · `Vite` · `Tailwind CSS v4` · `Framer Motion` · `GSAP` · Deployed automatically to GitHub Pages on push to `main`.

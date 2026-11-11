@@ -4,7 +4,7 @@ import Navbar from './components/Navbar'
 import Hero from './sections/Hero'
 
 const About = lazy(() => import('./sections/About'))
-const Darb = lazy(() => import('./sections/Darb'))
+const DashZ = lazy(() => import('./sections/DashZ'))
 const Experience = lazy(() => import('./sections/Experience'))
 const Activities = lazy(() => import('./sections/Activities'))
 const Projects = lazy(() => import('./sections/Projects'))
@@ -25,7 +25,7 @@ export default function App() {
         <Hero />
         <Suspense fallback={<SectionFallback />}>
           <About />
-          <Darb />
+          <DashZ />
           <Experience />
           <Activities />
           <Projects />
