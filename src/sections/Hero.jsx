@@ -107,14 +107,6 @@ function ProfileCard() {
           </svg>
         </div>
       </TiltedCard>
-
-      {/* ── small floating emoji sticker bottom-left ── */}
-      <div
-        aria-hidden="true"
-        className="absolute -bottom-2 -left-5 z-30 rotate-[-10deg] text-3xl drop-shadow-lg transition-transform duration-500 group-hover/card:rotate-[5deg] group-hover/card:scale-125"
-      >
-        🔥
-      </div>
     </div>
   )
 }
