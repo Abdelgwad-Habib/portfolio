@@ -27,9 +27,9 @@ export default function App() {
           <About />
           <DashZ />
           <Experience />
-          <Activities />
           <Projects />
           <Skills />
+          <Activities />
           <Certificates />
           <Contact />
         </Suspense>

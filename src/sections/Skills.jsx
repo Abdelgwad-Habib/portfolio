@@ -10,7 +10,7 @@ export default function Skills() {
       <div className="pointer-events-none absolute left-1/2 top-0 h-[30rem] w-[46rem] -translate-x-1/2 rounded-full bg-glow/[0.06] blur-[130px]" />
 
       <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
-        <SectionHeading index="06" kicker="--toolkit --list-all" title="Skills & Arsenal" />
+        <SectionHeading index="05" kicker="--toolkit --list-all" title="Skills & Arsenal" />
 
         <div className="space-y-10">
           {skillGroups.map((group, gi) => (

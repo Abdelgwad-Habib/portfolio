@@ -1,10 +1,7 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import {
   AnimatePresence,
   motion,
-  useScroll,
-  useSpring,
-  useTransform,
 } from 'framer-motion'
 import { ArrowUpRight, Check, Copy, Download, X } from 'lucide-react'
 import { profile } from '../data'
@@ -69,63 +66,87 @@ function KineticLabel({ label, isActive }) {
 }
 
 export default function Navbar() {
+  const containerRef = useRef(null)
+  const linkRefs = useRef({})
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [copied, setCopied] = useState(false)
   const [active, setActive] = useState('')
-
-  const { scrollYProgress } = useScroll()
-  const progress = useSpring(scrollYProgress, {
-    stiffness: 160,
-    damping: 28,
-    mass: 0.25,
-  })
-  const needleLeft = useTransform(progress, [0, 1], ['0%', '100%'])
+  const [needle, setNeedle] = useState({ x: 0, visible: false })
 
   useEffect(() => {
-    const onScroll = () => {
-      setScrolled(window.scrollY > 24)
-      if (window.scrollY < 160) setActive('')
-    }
-    onScroll()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
+    const handleScroll = () => {
+      const scrollY = window.scrollY
+      setScrolled(scrollY > 24)
 
-  useEffect(() => {
-    const observed = new Set()
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) setActive(entry.target.id)
-        }
-      },
-      { rootMargin: '-38% 0px -55% 0px' }
-    )
+      if (!containerRef.current) return
+      const containerRect = containerRef.current.getBoundingClientRect()
 
-    const attachSections = () => {
+      if (scrollY < 120) {
+        setActive('')
+        setNeedle({ x: 0, visible: false })
+        return
+      }
+
+      // Collect points for each section and its corresponding nav element
+      const points = []
       for (const s of allSections) {
-        if (observed.has(s.id)) continue
-        const el = document.getElementById(s.id)
-        if (el) {
-          observer.observe(el)
-          observed.add(s.id)
+        const secEl = document.getElementById(s.id)
+        const navEl = linkRefs.current[s.id]
+        if (secEl && navEl) {
+          const navRect = navEl.getBoundingClientRect()
+          points.push({
+            id: s.id,
+            top: secEl.offsetTop - 140,
+            height: secEl.offsetHeight,
+            x: navRect.left - containerRect.left + navRect.width / 2,
+          })
         }
       }
-      return observed.size === allSections.length
+
+      if (points.length === 0) return
+
+      let posX = points[0].x
+      let currentActive = points[0].id
+
+      // Check if at the bottom of the page
+      if (window.innerHeight + scrollY >= document.documentElement.scrollHeight - 60) {
+        const last = points[points.length - 1]
+        setActive(last.id)
+        setNeedle({ x: last.x, visible: true })
+        return
+      }
+
+      if (scrollY <= points[0].top) {
+        posX = points[0].x
+        currentActive = points[0].id
+      } else if (scrollY >= points[points.length - 1].top) {
+        const last = points[points.length - 1]
+        posX = last.x
+        currentActive = last.id
+      } else {
+        for (let i = 0; i < points.length - 1; i++) {
+          const p1 = points[i]
+          const p2 = points[i + 1]
+          if (scrollY >= p1.top && scrollY < p2.top) {
+            const ratio = Math.max(0, Math.min(1, (scrollY - p1.top) / (p2.top - p1.top)))
+            posX = p1.x + ratio * (p2.x - p1.x)
+            currentActive = ratio < 0.5 ? p1.id : p2.id
+            break
+          }
+        }
+      }
+
+      setActive(currentActive)
+      setNeedle({ x: posX, visible: true })
     }
 
-    let mutObserver
-    if (!attachSections()) {
-      mutObserver = new MutationObserver(() => {
-        if (attachSections()) mutObserver.disconnect()
-      })
-      mutObserver.observe(document.body, { childList: true, subtree: true })
-    }
-
+    handleScroll()
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    window.addEventListener('resize', handleScroll, { passive: true })
     return () => {
-      observer.disconnect()
-      mutObserver?.disconnect()
+      window.removeEventListener('scroll', handleScroll)
+      window.removeEventListener('resize', handleScroll)
     }
   }, [])
 
@@ -161,7 +182,7 @@ export default function Navbar() {
         scrolled ? 'bg-ink/85 backdrop-blur-xl' : 'bg-transparent'
       }`}
     >
-      <div className="mx-auto max-w-6xl px-5 sm:px-8">
+      <div ref={containerRef} className="mx-auto max-w-6xl px-5 sm:px-8">
         <nav
           aria-label="Primary"
           className="flex h-16 items-center justify-between gap-4"
@@ -205,6 +226,9 @@ export default function Navbar() {
                 <a
                   key={item.id}
                   href={item.href}
+                  ref={(el) => {
+                    linkRefs.current[item.id] = el
+                  }}
                   className="group relative flex items-baseline gap-1.5 px-2.5 py-2 font-display text-[13px] font-medium transition-colors"
                 >
                   <span
@@ -226,7 +250,7 @@ export default function Navbar() {
                         stiffness: 380,
                         damping: 32,
                       }}
-                      className="absolute inset-x-2 -bottom-[11px] z-20 h-[2px] bg-neon"
+                      className="absolute inset-x-2 -bottom-[11px] z-20 h-[2px] bg-neon shadow-[0_0_8px_rgba(0,255,157,0.8)]"
                     />
                   )}
                 </a>
@@ -238,6 +262,9 @@ export default function Navbar() {
           <div className="flex items-center gap-2.5">
             <a
               href="#contact"
+              ref={(el) => {
+                linkRefs.current['contact'] = el
+              }}
               className={`group hidden items-center gap-1.5 rounded-md border px-3.5 py-1.5 font-mono text-[12px] font-medium transition-all duration-200 sm:inline-flex ${
                 active === 'contact'
                   ? 'border-neon bg-neon text-ink'
@@ -273,7 +300,7 @@ export default function Navbar() {
           </div>
         </nav>
 
-        {/* ── Bottom Drafting Ruler + Gliding Scroll Needle ── */}
+        {/* ── Bottom Drafting Ruler with Authentically Synced Gliding Needle ── */}
         <div
           aria-hidden="true"
           className="relative h-2.5 w-full select-none border-t border-white/[0.08]"
@@ -294,16 +321,20 @@ export default function Navbar() {
                 'repeating-linear-gradient(90deg, rgba(255,255,255,0.45) 0 1px, transparent 1px 70px)',
             }}
           />
-          {/* Active scroll progress trace */}
+          {/* Active synchronized scroll progress trace */}
           <motion.div
-            style={{ scaleX: progress }}
-            className="absolute left-0 top-0 h-[1.5px] w-full origin-left bg-gradient-to-r from-neon/60 via-neon to-glow"
+            animate={{ width: needle.visible ? needle.x : 0 }}
+            transition={{ type: 'spring', stiffness: 280, damping: 30 }}
+            className="absolute left-0 top-0 h-[1.5px] bg-gradient-to-r from-neon/60 via-neon to-glow"
           />
-          {/* Gliding needle playhead */}
-          <motion.div
-            style={{ left: needleLeft }}
-            className="absolute -top-[3px] h-2.5 w-[2px] -translate-x-1/2 bg-neon shadow-[0_0_8px_rgba(0,255,157,0.9)]"
-          />
+          {/* Gliding needle playhead locked to active link position */}
+          {needle.visible && (
+            <motion.div
+              animate={{ left: needle.x }}
+              transition={{ type: 'spring', stiffness: 280, damping: 30 }}
+              className="absolute -top-[3px] h-2.5 w-[2px] -translate-x-1/2 bg-neon shadow-[0_0_8px_rgba(0,255,157,0.9)]"
+            />
+          )}
         </div>
       </div>
 

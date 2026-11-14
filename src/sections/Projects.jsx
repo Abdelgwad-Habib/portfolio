@@ -15,7 +15,7 @@ export default function Projects() {
   return (
     <section id="projects" className="cv-auto relative py-24 sm:py-32">
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
-        <SectionHeading index="05" kicker="ls ~/projects --featured" title="Projects" />
+        <SectionHeading index="04" kicker="ls ~/projects --featured" title="Projects" />
 
         <div className="grid gap-5 md:grid-cols-2">
           {projects.map((p, i) => {
