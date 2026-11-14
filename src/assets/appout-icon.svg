@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 290 290" fill="none">
+  <!-- TL Outline Tile -->
+  <rect x="20" y="16" width="116" height="116" rx="32" stroke="#FABD18" stroke-width="16" fill="none" />
+  <path d="M 42 72 v 22 a 18 18 0 0 0 18 18 h 5" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+  
+  <!-- TR Solid Tile -->
+  <rect x="158" y="38" width="94" height="94" rx="24" fill="#FABD18" />
+  
+  <!-- BL Solid Tile -->
+  <rect x="58" y="156" width="94" height="94" rx="24" fill="#FABD18" />
+  
+  <!-- BR Outline Tile -->
+  <rect x="154" y="152" width="122" height="122" rx="34" stroke="#FABD18" stroke-width="16" fill="none" />
+  <!-- BR top-left inner reflection -->
+  <path d="M 176 195 v -10 a 14 14 0 0 1 14 -14 h 9" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+  <!-- BR bottom-right inner reflection -->
+  <path d="M 228 250 h 10 a 16 16 0 0 0 16 -16 v -12" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+</svg>

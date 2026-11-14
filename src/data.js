@@ -131,7 +131,7 @@ export const skillGroups = [
       { icon: 'wireshark', label: 'Wireshark', color: '#1679a7' },
       { icon: 'burp', label: 'Burp Suite', color: '#ff6633' },
       { icon: 'git', label: 'Git & GitHub', color: '#f34f29' },
-      { icon: 'vscode', label: 'VS Code', color: '#007acc' },
+      { icon: 'nessus', label: 'Nessus', color: '#00d2d2' },
     ],
   },
   {
@@ -152,6 +152,7 @@ export const marqueeItems = [
   'Nmap',
   'Wireshark',
   'Burp Suite',
+  'Nessus',
   'OWASP Top 10',
   'TryHackMe',
   'CyberShield',

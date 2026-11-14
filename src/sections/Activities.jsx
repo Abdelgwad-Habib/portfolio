@@ -3,6 +3,7 @@ import SpotlightCard from '../components/reactbits/SpotlightCard'
 import CountUp from '../components/reactbits/CountUp'
 import SectionHeading from '../components/SectionHeading'
 import { Mic, Timer, Trophy, Zap } from 'lucide-react'
+import { AppoutIcon } from '../components/BrandIcons'
 
 export default function Activities() {
   return (
@@ -22,14 +23,14 @@ export default function Activities() {
                 <div>
                   <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
                     <div className="flex items-start gap-5">
-                      <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-neon/30 bg-white/[0.04] text-neon shadow-[0_0_36px_-8px_rgba(0,255,157,0.6)]">
-                        <Trophy size={26} strokeWidth={1.7} />
+                      <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-amber-400/35 bg-amber-400/[0.08] shadow-[0_0_36px_-8px_rgba(250,189,24,0.55)] transition-transform duration-300 hover:scale-105">
+                        <AppoutIcon size={32} />
                       </span>
                       <div>
-                        <p className="font-mono text-xs tracking-wider text-mist">hackathon</p>
+                        <p className="font-mono text-xs tracking-wider text-amber-400/80">hackathon · intelligent solutions</p>
                         <h3 className="mt-1 font-display text-2xl font-bold text-white sm:text-3xl">
                           AppOut
-                          <span className="ml-3 inline-block rounded-full border border-neon/40 bg-neon/10 px-3 py-1 align-middle font-mono text-[11px] font-bold uppercase tracking-widest text-neon">
+                          <span className="ml-3 inline-block rounded-full border border-amber-400/40 bg-amber-400/10 px-3 py-1 align-middle font-mono text-[11px] font-bold uppercase tracking-widest text-amber-300">
                             Top 10 Finalist
                           </span>
                         </h3>
