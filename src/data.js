@@ -30,11 +30,11 @@ export const stats = [
 
 export const about = {
   paragraphs: [
-    'I am a Computer Science student at Cairo University obsessed with the offensive side of security — breaking web apps with the OWASP Top 10, enumerating DNS with my own tooling, and hardening Linux boxes until they stop talking.',
+    'I am a Computer Science student at Tanta University obsessed with the offensive side of security — breaking web apps with the OWASP Top 10, enumerating DNS with my own tooling, and hardening Linux boxes until they stop talking.',
     'When I am not in a CTF, I am solving algorithm problems (120+ and counting, with a 30-day streak) or building tools in C++, Python and Bash. I competed at ECPC and the Africa & Arab Collegiate Programming Championship (ACPC).',
   ],
   facts: [
-    { label: 'degree', value: 'B.Sc. Computer Science — Cairo University (2023 → 2027)' },
+    { label: 'degree', value: 'B.Sc. Computer Science — Tanta University (2023 → 2027)' },
     { label: 'focus', value: 'Web Penetration Testing · OWASP Top 10' },
     { label: 'languages', value: 'Arabic (Native) · English (B2 — AUC assessed)' },
     { label: 'currently', value: 'TryHackMe · CyberShield labs · Codeforces' },
