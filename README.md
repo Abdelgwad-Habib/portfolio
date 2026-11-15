@@ -2,7 +2,7 @@
 
 > *"Break it. Report it. Secure it. Repeat."*
 
-Welcome to the source code of my personal portfolio — a live snapshot of a Computer Science student from **Tanta, Egypt**, splitting his nights between offensive security labs, algorithmic problem-solving, and shipping products from scratch.
+Welcome to the source code of my personal portfolio — a live snapshot of a Computer Science student from **Cairo, Egypt**, splitting his nights between offensive security labs, algorithmic problem-solving, and shipping products from scratch.
 
 **Live Site:** [abdelgwad-habib.github.io/portfolio](https://abdelgwad-habib.github.io/portfolio/)
 
@@ -11,7 +11,7 @@ Welcome to the source code of my personal portfolio — a live snapshot of a Com
 ## The Story So Far
 
 ### Chapter 01 — The Logic Foundations *(2023 — Present)*
-Every good exploit starts with understanding how systems think. In 2023, I started my B.Sc. in Computer Science at **Tanta University** (`2023 → 2027`) and fell down the competitive programming rabbit hole — **120+ algorithm problems** solved across Codeforces and VJudge, a 30-day streak, C++ OOP systems built from scratch, and competing at **ECPC** on the road to the **Africa & Arab Collegiate Programming Championship (ACPC)**.
+Every good exploit starts with understanding how systems think. In 2023, I started my B.Sc. in Computer Science at **Cairo University** (`2023 → 2027`) and fell down the competitive programming rabbit hole — **120+ algorithm problems** solved across Codeforces and VJudge, a 30-day streak, C++ OOP systems built from scratch, and competing at **ECPC** on the road to the **Africa & Arab Collegiate Programming Championship (ACPC)**.
 
 ### Chapter 02 — Switching Sides: Offensive Security *(2024 — Present)*
 Once you know how software is built, you start wondering how it breaks. I moved into **Web Penetration Testing** and the **OWASP Top 10**, racking up **160 hours** of pentest training at the International Professionalism Academy (*Awarded with Distinction*), **20+ CTFs and labs** on **TryHackMe** and **CyberShield**, and daily-driving **Kali Linux, Nmap, Wireshark, and Burp Suite**.

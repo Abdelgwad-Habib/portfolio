@@ -146,7 +146,7 @@ export default function Hero() {
             transition={{ delay: 1.4, duration: 0.6 }}
             className="mt-5 max-w-xl leading-relaxed text-mist"
           >
-            CS student at Tanta University specializing in offensive security.
+            CS student at Cairo University specializing in offensive security.
             OWASP Top 10, Linux internals and 120+ algorithm problems deep —
             turning curiosity into exploits and defenses.
           </motion.p>
