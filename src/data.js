@@ -43,6 +43,18 @@ export const about = {
 
 export const experience = [
   {
+    period: '2024 — Present',
+    title: 'Co-Founder & Full-Stack Security Engineer',
+    org: 'DashZ — AI Career Tech',
+    isDashZ: true,
+    points: [
+      'Architected and integrated the end-to-end AI solution powering automated CV parsing, skill-gap analysis, and intelligent career roadmapping.',
+      'Designed and engineered the complete modern, responsive frontend application.',
+      'Spearheaded web application security from day one — conducting vulnerability assessments, hardening endpoints, and mitigating OWASP Top 10 risks.',
+    ],
+    tags: ['AI Pipeline', 'Frontend Architecture', 'Web Security', 'OWASP Top 10', 'React'],
+  },
+  {
     period: 'Jul 2025 — Aug 2025',
     title: 'Network Infrastructure Intern',
     org: 'NTI — National Telecommunication Institute',
